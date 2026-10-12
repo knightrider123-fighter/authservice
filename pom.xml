@@ -60,7 +60,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security-oauth2-resource-server</artifactId>
         </dependency>
-
+		
         <!-- Monitoring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -94,6 +94,13 @@
             <artifactId>spring-boot-starter-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-oauth2-authorization-server</artifactId>
+    <version>7.1.1</version>
+</dependency>
+
 		<!-- In Spring Boot, omit <version> so Spring Boot Dependency Management controls it -->
 	<dependency>
     	<groupId>com.fasterxml.jackson.core</groupId>
