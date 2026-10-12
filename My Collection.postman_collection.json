@@ -1,0 +1,221 @@
+{
+  "info": {
+    "_postman_id": "be11c291-9317-43c0-aa7b-09f7a230feaf",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53531508",
+    "_collection_link": "https://go.postman.co/collection/53531508-be11c291-9317-43c0-aa7b-09f7a230feaf?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "customer-service",
+      "item": [
+        {
+          "name": "Customer-Ratelimiter",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "\r",
+                  "const n = pm.info.iteration + 1;\r",
+                  "\r",
+                  "pm.variables.set(\"firstName\", `User${n}`);\r",
+                  "pm.variables.set(\"email\", `user${n}@example.com`);\r",
+                  "pm.variables.set(\"externalId\", `EXT${10000 + n}`);\r",
+                  "\r",
+                  "console.log(`Sending request ${n}`);\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "\r",
+                  "const n = pm.info.iteration + 1;\r",
+                  "\r",
+                  "pm.variables.set(\"firstName\", `User${n}`);\r",
+                  "pm.variables.set(\"email\", `user${n}@example.com`);\r",
+                  "pm.variables.set(\"externalId\", `EXT${10000 + n}`);\r",
+                  "\r",
+                  "console.log(`Sending request ${n}`);\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"{{firstName}}\",\n    \"lastName\": \"Test\",\n    \"email\": \"{{email}}\",\n    \"phone\": \"9876543210\",\n    \"address\": \"Pune\",\n    \"externalId\": \"{{externalId}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/customers/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Customer Registeration",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Shriram\",\n    \"lastName\": \"Bhople\",\n    \"email\": \"shriram.test@example.com\",\n    \"phone\": \"9876543210\",\n    \"address\": \"Chhatrapati Sambhajinagar, Maharashtra\",\n    \"externalId\": \"EXT100032\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/customers/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "authservice",
+      "item": [
+        {
+          "name": "Auth",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Auth2",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "loginRequestBasic01",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080//v1/api/auth",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "",
+                "v1",
+                "api",
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080//v1/api/auth",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "",
+                "v1",
+                "api",
+                "auth"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Admin Dash Board",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/private/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "private",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
